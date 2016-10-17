@@ -1,0 +1,30 @@
+<div>CHATROOM TITLE: {{chatroom.title}}</div>
+<div>currentuser: {{session.currentUser.fullName}}</div>
+{{input type="text" value=search placeholder="Search by"}}
+{{#each filteredTypedUsers as |user|}}
+  <div>{{user.firstName}}-is typing...</div>
+{{/each}}
+<div class="messages">
+  {{load-more-button action=(route-action 'infinityLoad' messages) infinityModel=messages}}
+  {{#each sortedMessages as |message|}}
+      {{message-item message=message}}
+  {{/each}}
+</div>
+
+<div class="navbar navbar-default navbar-fixed-bottom message-bar">
+    <div class="container">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-xs-8">
+                  {{input class='form-control input-lg input-block message-input' placeholder='Your message' value=messageBody}}
+                  {{#fa-icon "paperclip" class="field-wrapper" size=2}}
+                    {{file-upload class="uploader-container" addAttachment=(action "addAttachment")}}
+                  {{/fa-icon}}
+                </div>
+                <div class="col-xs-2">
+                  <button type="submit" class="btn btn-primary btn-lg {{unless isValid "disabled"}}" {{action 'addMessage' messageBody}}>Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

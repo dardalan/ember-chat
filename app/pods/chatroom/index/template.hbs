@@ -1,0 +1,7 @@
+<div>Chat room list:</div>
+{{#each chatrooms as |chatroom|}}
+  <div class="fix-height">{{#link-to 'chatroom.show' chatroom.id}}{{chatroom.title}}{{/link-to}}</div>
+{{/each}}
+{{infinity-loader infinityModel=chatrooms}}
+
+<div class="send-btn">{{link-to 'Create New Chat Room' 'chatroom.new'}}</div>

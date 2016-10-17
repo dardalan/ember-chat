@@ -1,0 +1,14 @@
+<div>Create Chatroom</div>
+
+{{input type="text" value=chatroom.title}}
+<span {{action "createChatroom"}}>create</span>
+
+<div class="margined-section">Selected Members:</div>
+{{#each chatroom.members as |member|}}
+  <div {{action 'removeMember' member}}>{{member.fullName}}</div>
+{{/each}}
+
+<div class="margined-section">Add Members:</div>
+{{#each users as |user|}}
+  <div {{action 'addMember' user}}>{{user.fullName}}</div>
+{{/each}}

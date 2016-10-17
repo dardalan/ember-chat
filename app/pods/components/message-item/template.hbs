@@ -1,0 +1,10 @@
+<div class="alert {{if (eq session.currentUser.id message.user.id) "alert-success" "alert-warning"}} alert-chat">
+  <p class="padded-section margined"><span class="label label-warning label-user">{{message.status}}</span></p>
+  {{#if message.body}}
+    <p>{{message.body}}</p>
+  {{else}}
+    <img src="{{messageUrl}}" class="image-box"/>
+  {{/if}}
+  <p><span>{{moment-from-now message.createdAt}}</span></p>
+  <span>{{message.user.fullName}}</span>
+</div>

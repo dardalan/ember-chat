@@ -3,7 +3,10 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'frontend-chat',
+    podModulePrefix: 'frontend-chat/pods',
     environment: environment,
+    apiHost: '',
+    wsHost: '',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -25,6 +28,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['apiHost'] = 'http://192.168.0.159:3000';//'http://192.168.0.103:3000';//'http://192.168.0.159:3000';//'http://localhost:3000';
+    ENV['wsHost']  = 'ws://192.168.0.159:3000';//'ws://192.168.0.103:3000';//'ws://192.168.0.159:3000';//'ws://localhost:3000';
   }
 
   if (environment === 'test') {
@@ -42,6 +47,21 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'chatroom',
+    routeIfAlreadyAuthenticated: 'chatroom',
+    authenticationRoute: 'login'
+  }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'self' " + ENV.apiHost,
+    'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.googleapis.com maps.gstatic.com " + ENV.apiHost,
+    'font-src': "'self'" + ENV.apiHost,
+    'connect-src': "'self' maps.gstatic.com " + ENV.apiHost,
+    'img-src': "'self' *.googleapis.com " + ENV.apiHost,
+    'style-src': "'self' 'unsafe-inline http://fonts.googleapis.com http://platform.twitter.com " + ENV.apiHost,
+  };
 
   return ENV;
 };

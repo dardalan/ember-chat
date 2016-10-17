@@ -1,0 +1,82 @@
+.send-btn {
+  margin-top: 15px;
+}
+
+.margined-section {
+  margin-top: 20px;
+}
+
+.padded-section.margined {
+  margin-bottom: 5px;
+}
+
+.message-block {
+  width: 100px;
+}
+
+body {
+  padding-bottom: 70px;
+}
+
+.message-bar {
+  height: 70px;
+  padding-top: 13px;
+}
+
+.alert-chat {
+  padding: 5px;
+}
+
+.label-user {
+  font-size: 100%;
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+
+.nav-links {
+  padding: 10px;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.fix-height {
+  height: 100px;
+}
+
+.messages {
+  height: 60vh;
+  overflow: scroll;
+  margin-top: 10px;
+}
+
+.uploader-container {
+  display: inline-block !important;
+  position: absolute;
+  top: 0;
+  width: 2vw;
+  opacity: 0;
+}
+
+.message-input {
+  width: 40vw;
+  display: inline-block;
+}
+
+.image-box {
+  height: 100px;
+  width: 100px;
+}
+
+.field-wrapper {
+  width: 2vw;
+  position: relative;
+  height: 5vh;
+  margin-left: 10px;
+}
